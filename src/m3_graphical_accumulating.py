@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and JaeJung Hyun.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -96,7 +96,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -109,6 +109,23 @@ def draw_parallel_lines(n, point, length, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    x= point.x
+    y= point.y
+
+    point = rg.Point(x,y)
+    point1 = rg.Point(x+length,y)
+    line = rg.Line(point,point1)
+    line.attach_to(window)
+
+    for k in range(n):
+        point.y = y +k * 30
+        point1.y = y +k * 30
+        line1 = rg.Line(point,point1)
+        line1.attach_to(window)
+
+
+    window.render(.005)
+
 
 
 def test_draw_lines():
@@ -134,7 +151,20 @@ def test_draw_lines():
 
 
 def draw_lines(n, point, window):
+
+
+    for k in range(n):
+
+        line= rg.Line(point, rg.Point(point.x+100, point.y+100-((k)*(200/(n-1)))))
+        line.attach_to(window)
+
+
+
+
+
+    window.render(0.05)
     """
+        
     What comes in: The three arguments are:
       -- A integer n that is at least 2.
       -- An rg.Point.
@@ -151,7 +181,7 @@ def draw_lines(n, point, window):
          -- Its x-coordinate is (pX + 100),
               where pX is the x-coordinate of the given rg.Point.
          -- The y-coordinates of the lines vary evenly
-              from  (pY - 100)  to  (pY + 100),
+              from  (pY - 100)  to  (pY 7+ 100),
               where pY is the y-coordinate of the given rg.Point.
       Must  ** render **     but   ** NOT close **   the window.
 
@@ -161,7 +191,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,

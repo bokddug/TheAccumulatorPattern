@@ -294,7 +294,7 @@ def count_sines_vs_cosines(m):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
- 
+
     import math
     count = 0
     for k in range(m+1):
